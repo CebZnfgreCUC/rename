@@ -10,7 +10,7 @@ rename($uniq.$type, $name);
 $file = $name;
 $cont = mime_content_type($file);
 if($cont == "text/x-php"){
-$cont = "text/plain";
+$cont = "application/octet-stream";
 }
 
 if (file_exists($file)) {

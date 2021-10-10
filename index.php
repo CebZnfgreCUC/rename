@@ -8,10 +8,14 @@ copy($url, $uniq.$type);
 rename($uniq.$type, $name);
 
 $file = $name;
+$cont = mime_content_type($file);
+if($cont == "text/x-php"){
+$cont = "text/plain";
+}
 
 if (file_exists($file)) {
     header('Content-Description: File Transfer');
-    header('Content-Type: '.mime_content_type($file));
+    header('Content-Type: '.$cont);
     header('Content-Disposition: attachment; filename="'.basename($file).'"');
     header('Expires: 0');
     header('Cache-Control: must-revalidate');

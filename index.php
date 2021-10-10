@@ -11,7 +11,7 @@ $file = $name;
 
 if (file_exists($file)) {
     header('Content-Description: File Transfer');
-    header('Content-Type: image/jpg');
+    header('Content-Type: '.mime_content_type($file));
     header('Content-Disposition: attachment; filename="'.basename($file).'"');
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
